@@ -7,65 +7,65 @@ using namespace std;
 
 // } Driver Code Ends
 // User function template for C++
-bool isSafe(vector<vector<int>>& m,int n,int x,int y,vector<vector<int>> visited,string output,vector<string>& ans){
-    if((x>=0 && x<n) && (y>=0 && y<n) && (visited[x][y]==0) && (m[x][y]==1)){
+class Solution{
+    public:
+    
+bool isSafe(vector<vector<int>>& m,int n,int row,int col,vector<vector<int>> visited,string output,vector<string>& ans){
+    if((row>=0 && row<n) && (col>=0 && col<n) && (visited[row][col]==0) && (m[row][col]==1)){
         return true;
     }else{
         return false;
     }
 }
 
-void solve(vector<vector<int>>& m,int n,int x,int y,vector<vector<int>> visited,string output,vector<string>& ans){
+void solve(vector<vector<int>>& m,int n,int row,int col,vector<vector<int>> visited,string output,vector<string>& ans){
     //Base Case
-    if(x==n-1 && y==n-1){
+    if(row==n-1 && col==n-1){
         ans.push_back(output);
         return;
     }
-    visited[x][y]=1;
+    visited[row][col]=1;
     //choices- D,L,U,R
     
     //Down
-    int newx=x+1;
-    int newy=y;
-    if(isSafe(m,n,newx,newy,visited,output,ans)){
+    int newrow=row+1;
+    int newcol=col;
+    if(isSafe(m,n,newrow,newcol,visited,output,ans)){
         output.push_back('D');
-        solve(m,n,newx,newy,visited,output,ans);
+        solve(m,n,newrow,newcol,visited,output,ans);
         output.pop_back();
     }
     //Left
-    newx=x;
-    newy=y-1;
-    if(isSafe(m,n,newx,newy,visited,output,ans)){
+    newrow=row;
+    newcol=col-1;
+    if(isSafe(m,n,newrow,newcol,visited,output,ans)){
         output.push_back('L');
-        solve(m,n,newx,newy,visited,output,ans);
+        solve(m,n,newrow,newcol,visited,output,ans);
         output.pop_back();
     }
     
     //Up
-    newx=x-1;
-    newy=y;
-    if(isSafe(m,n,newx,newy,visited,output,ans)){
+    newrow=row-1;
+    newcol=col;
+    if(isSafe(m,n,newrow,newcol,visited,output,ans)){
         output.push_back('U');
-        solve(m,n,newx,newy,visited,output,ans);
+        solve(m,n,newrow,newcol,visited,output,ans);
         output.pop_back();
     }
     
     //Right
-    newx=x;
-    newy=y+1;
-    if(isSafe(m,n,newx,newy,visited,output,ans)){
+    newrow=row;
+    newcol=col+1;
+    if(isSafe(m,n,newrow,newcol,visited,output,ans)){
         output.push_back('R');
-        solve(m,n,newx,newy,visited,output,ans);
+        solve(m,n,newrow,newcol,visited,output,ans);
         output.pop_back();
     }
     
     
-    visited[x][y]=0;
+    visited[row][col]=0;
 }
-
-
-class Solution{
-    public:
+    
     vector<string> findPath(vector<vector<int>>& m, int n) {
         vector<string> ans;
         string output="";
@@ -78,9 +78,9 @@ class Solution{
                 visited[i][j]=0;
             }
         }
-        int srcx=0;
-        int srcy=0;
-        solve(m,n,srcx,srcy,visited,output,ans);
+        int srcrow=0;
+        int srccol=0;
+        solve(m,n,srcrow,srccol,visited,output,ans);
         sort(ans.begin(),ans.end());
         return ans;
         
