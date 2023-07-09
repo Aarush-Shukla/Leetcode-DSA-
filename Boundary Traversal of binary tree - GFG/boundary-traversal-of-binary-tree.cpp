@@ -128,9 +128,10 @@ void leafNode(Node *root,vector <int> &ans){
         ans.push_back(root->data);
         return;
     }
-    
+   
     leafNode(root->left,ans);
     leafNode(root->right,ans);
+    
 }
 
 void rightTraversal(Node *root,vector <int> &ans){
