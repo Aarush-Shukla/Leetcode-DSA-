@@ -30,6 +30,12 @@ class Solution {
 	    }
 	}
 	
+	
+	for(int i=0;i<n;i++){
+	    if(matrix[i][i]<0){
+	        cout<<"Negative Cycle";
+	    }
+	}
 	    
 	    
 	    
