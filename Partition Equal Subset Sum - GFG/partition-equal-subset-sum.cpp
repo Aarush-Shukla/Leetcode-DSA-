@@ -27,7 +27,7 @@ bool isSubsetSum(int arr[], int n, int sum,
     // If last element is greater than sum, then
     // ignore it
     if (arr[n - 1] > sum)
-        return isSubsetSum(arr, n - 1, sum, dp);
+        return dp[n][sum]=isSubsetSum(arr, n - 1, sum, dp);
  
     /* else, check if sum can be obtained by any of
         the following
