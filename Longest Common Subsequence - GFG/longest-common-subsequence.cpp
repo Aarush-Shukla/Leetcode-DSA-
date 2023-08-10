@@ -12,7 +12,10 @@ class Solution
     //Function to find the length of longest common subsequence in two strings.
     int lcs(int n, int m, string s1, string s2)
     {
-            vector<vector<int>> dp(n+1,vector<int>(m+1));
+           n=s1.length();
+    m=s2.length();
+
+    vector<vector<int>> dp(n+1,vector<int>(m+1));
  
     //Base Case
 
