@@ -5,8 +5,8 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
+    long long int count(int coins[], int N, int sum) {
 
-    long long int count(int coins[],int N,int sum) {
         vector<vector<long long int>> dp (N+1,vector<long long int>(sum+1));
         for(long long int i=0;i<N+1;i++){
             dp[i][0] = 1;
