@@ -29,38 +29,36 @@ int main() {
 // } Driver Code Ends
 
 
-typedef pair<int,int> pi;
-
 vector<long long> printFirstNegativeInteger(long long int A[],
                                              long long int N, long long int K) {
-                                                 
-                                                 
-    queue<pi>q;
-    vector<long long>ans;
-    
-    int i;
-    for( i=0; i<K-1; i++){
-        if(A[i]<0)q.push({A[i],i});
-    }
-    
-    pi p;
-    
-    int j =0;
-    while(i<N){
-        if(A[i]<0)q.push({A[i],i});
-        
-        if(q.empty())ans.push_back(0);
-        
-        else{
-            p = q.front();
-            ans.push_back(p.first);
-            
-            if(p.second<=j)q.pop();
-        }
-        j++;
-        i++;
-        
-    }
-    
-    return ans;
+                      
+                      
+                      int i=0;
+                      int j=0;
+                      vector<long long> vec;
+                      list<long long> lis;
+                      while(j<N){
+                          if(A[j]<0){
+                              lis.push_back(A[j]);
+                          }
+                          if(j-i+1<K){
+                              j++;
+                          }
+                          
+                          else if(j-i+1==K){
+                              if(lis.size()==0){
+                                  vec.push_back(0);
+                              }else{
+                                  vec.push_back(lis.front());
+                                  if(A[i]==lis.front()){
+                                      lis.pop_front();
+                                  }
+                              }
+                              i++;
+                              j++;
+                          }
+                          
+                      }
+                      
+             return vec;                                    
  }
