@@ -105,11 +105,10 @@ struct Node
 
 class Solution {
 public:
-
-void leftTraversal(Node* root,vector <int> &ans){
+  void leftTraversal(Node* root,vector <int> &ans){
     if (root==NULL || (root->left==NULL && root->right==NULL)){
         return;
-    }
+    }//sahi order mai chahiye the elements toh apan pehle push back kiye hai
     ans.push_back(root->data);
     if(root->left){
         leftTraversal(root->left,ans);
@@ -143,7 +142,7 @@ void rightTraversal(Node *root,vector <int> &ans){
         rightTraversal(root->right,ans);
     }else{
         rightTraversal(root->left,ans);
-    }
+    }//reverse order mai chahiye the elements toh apan baad mai push_back lagaye hai
     ans.push_back(root->data);
 }
 
