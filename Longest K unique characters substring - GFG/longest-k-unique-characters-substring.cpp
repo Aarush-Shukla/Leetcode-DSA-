@@ -10,7 +10,7 @@ using namespace std;
 class Solution{
   public:
     int longestKSubstr(string s, int k) {
-    int n=s.length();
+int n=s.length();
     int i=0;
     int j=0;
     int maxLen=0;
@@ -40,7 +40,6 @@ class Solution{
     }
     if(maxLen==0)return -1;
     return maxLen;
-    
     }
 };
 
