@@ -8,8 +8,8 @@ using namespace std;
 // User function Template for C++
 
 class Solution{
-private:
-    void dfs(int row, int col, vector<vector<int>> &vis, 
+public:
+   void dfs(int row, int col, vector<vector<int>> &vis, 
     vector<vector<char>> &mat, int delrow[], int delcol[]) {
         vis[row][col] = 1; 
         int n = mat.size();
