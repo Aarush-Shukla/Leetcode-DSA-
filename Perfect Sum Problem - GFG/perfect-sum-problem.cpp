@@ -6,9 +6,9 @@ using namespace std;
 class Solution{
 
 	public:
-int perfectSum(int arr[], int n, int sum)
+	int perfectSum(int arr[], int n, int sum)
 	{
-        int t[n+1][sum+1];
+         int t[n+1][sum+1];
         memset(t,0,sizeof(t));
         int cnt=1;
         t[0][0]=1;
@@ -29,7 +29,6 @@ int perfectSum(int arr[], int n, int sum)
             }
         }
         return t[n][sum];
-            
 	}
 	  
 };
