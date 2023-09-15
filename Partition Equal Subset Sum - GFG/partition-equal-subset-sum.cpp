@@ -9,7 +9,8 @@ using namespace std;
 
 class Solution{
 public:
-   
+
+
 bool isSubsetSum(int arr[], int n, int sum,
                  vector<vector<int> >& dp)
 {
@@ -40,15 +41,12 @@ bool isSubsetSum(int arr[], int n, int sum,
              || isSubsetSum(arr, n - 1, sum - arr[n - 1],
                             dp);
 }
-   
-  
-   
-   
-    int equalPartition(int n, int arr[])
+
+    int equalPartition(int N, int arr[])
     {
-       // Calculate sum of the elements in array
+         // Calculate sum of the elements in array
     int sum = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < N; i++)
         sum += arr[i];
  
     // If sum is odd, there cannot be two subsets
@@ -57,13 +55,12 @@ bool isSubsetSum(int arr[], int n, int sum,
         return false;
  
     // To store overlapping subproblems
-    vector<vector<int> > dp(n + 1,
+    vector<vector<int> > dp(N + 1,
                             vector<int>(sum + 1, -1));
  
     // Find if there is subset with sum equal to
     // half of total sum
-    return isSubsetSum(arr, n, sum / 2, dp);
-      
+    return isSubsetSum(arr, N, sum / 2, dp);
     }
 };
 
